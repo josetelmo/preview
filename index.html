@@ -1,21 +1,330 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de José Telmo — Marketing, Educação, Inteligência Artificial, Design e Estratégia Digital." />
+  <meta name="theme-color" content="#09090b" />
+  <title>José Telmo — Marketing, Educação & IA</title>
 
-<TITLE>BOMBA! FOFOCA NO PLANALTO SOBRE VORCARO</TITLE>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Tipografia e ícones via CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            ink: '#09090b',
+            lime: '#c7f36b',
+            electric: '#7c8cff',
+          },
+          boxShadow: {
+            glow: '0 0 80px rgba(124, 140, 255, .20)',
+          }
+        }
+      }
+    }
+  </script>
 
-<style>
-html {font-family:"calibri";}
-
-</style>
+  <style>
+    ::selection { background: #c7f36b; color: #09090b; }
+    body { background: #09090b; }
+    .noise {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
+    }
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+    .card { transition: transform .25s ease, border-color .25s ease, background-color .25s ease; }
+    .card:hover { transform: translateY(-4px); }
+  </style>
 </head>
-<body>
 
-<h1>Assessoria informal, grupo de mensagens, cobrança de pagamento: PF detalha relação de Vorcaro com servidores do BC</h1>
+<body class="font-sans text-zinc-100 antialiased overflow-x-hidden">
+  <div class="fixed inset-0 grid-bg pointer-events-none"></div>
+  <div class="fixed inset-0 noise opacity-30 pointer-events-none mix-blend-soft-light"></div>
 
-<h2>Segundo a Polícia Federal, dois servidores do Banco Central ofereceram orientações detalhadas, revisaram documentos sensíveis e intervieram em temas de supervisão bancária em favor do Banco Master. E cobraram por isso.</h2>
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-ink/75 backdrop-blur-xl">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <a href="#inicio" class="font-display font-bold tracking-tight text-lg">JT<span class="text-lime">.</span></a>
+      <div class="hidden md:flex items-center gap-7 text-sm text-zinc-400">
+        <a href="#sobre" class="hover:text-white transition">Sobre</a>
+        <a href="#atuacao" class="hover:text-white transition">Atuação</a>
+        <a href="#conteudo" class="hover:text-white transition">Conteúdo</a>
+        <a href="#contato" class="hover:text-white transition">Contato</a>
+      </div>
+      <a href="https://linkedin.com/in/josetelmo" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 text-sm hover:bg-white hover:text-black transition">
+        LinkedIn <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+      </a>
+    </nav>
+  </header>
 
-<p>A Polícia Federal (PF) apontou em relatórios tornados públicos nesta sexta-feira (11) que Paulo Sérgio Neves de Souza e Belline Santana, servidores afastados do Banco Central (BC), atuaram de maneira reiterada como consultores informais de Daniel Vorcaro.</p>
+  <main>
+    <!-- HERO -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-16">
+      <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[46rem] h-[46rem] rounded-full bg-electric/10 blur-3xl pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full relative">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-end">
+          <div class="lg:col-span-8">
+            <div class="inline-flex items-center gap-2 rounded-full border border-lime/25 bg-lime/5 px-3 py-1.5 text-xs font-medium text-lime mb-7">
+              <span class="w-1.5 h-1.5 rounded-full bg-lime animate-pulse"></span>
+              Marketing · Educação · Inteligência Artificial
+            </div>
+
+            <h1 class="font-display text-5xl sm:text-7xl lg:text-[6.6rem] leading-[.92] tracking-[-0.055em] font-bold">
+              Ideias que conectam
+              <span class="text-zinc-500">estratégia, tecnologia e pessoas.</span>
+            </h1>
+
+            <p class="mt-8 max-w-2xl text-lg sm:text-xl leading-relaxed text-zinc-400">
+              Sou <strong class="text-white font-semibold">José Telmo</strong>. Professor e profissional de marketing com atuação em estratégia digital, IA, design, comunicação e desenvolvimento de projetos.
+            </p>
+
+            <div class="mt-9 flex flex-wrap gap-3">
+              <a href="#atuacao" class="inline-flex items-center gap-2 rounded-full bg-lime text-black px-5 py-3 font-semibold hover:scale-[1.02] transition">
+                Conheça meu trabalho <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+              </a>
+              <a href="https://youtube.com/josetelmo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-zinc-200 hover:bg-white/10 transition">
+                <i data-lucide="youtube" class="w-4 h-4"></i> YouTube
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 lg:pb-2">
+            <div class="rounded-3xl border border-white/10 bg-white/[.035] p-6 shadow-glow">
+              <div class="flex items-center justify-between mb-8">
+                <span class="text-xs uppercase tracking-[.18em] text-zinc-500">Em poucas palavras</span>
+                <i data-lucide="sparkles" class="w-4 h-4 text-lime"></i>
+              </div>
+              <p class="font-display text-2xl leading-snug text-zinc-200">
+                Transformo repertório de <span class="text-white">marketing</span>, <span class="text-white">educação</span> e <span class="text-white">tecnologia</span> em conteúdo, experiências e soluções.
+              </p>
+              <div class="mt-7 pt-6 border-t border-white/10 flex items-center justify-between text-sm">
+                <span class="text-zinc-500">Rio de Janeiro, Brasil</span>
+                <span class="text-lime">@josetelmo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="py-24 sm:py-32 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="text-sm font-semibold text-lime mb-3">01 / SOBRE</p>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold tracking-tight">Pensar antes de automatizar.</h2>
+          </div>
+          <div class="lg:col-span-8 lg:pt-8">
+            <p class="text-2xl sm:text-3xl leading-relaxed text-zinc-300 font-display">
+              Meu trabalho parte de uma ideia simples: tecnologia só ganha valor quando amplia a capacidade humana de <span class="text-white">entender, criar e decidir melhor</span>.
+            </p>
+            <div class="grid sm:grid-cols-2 gap-6 mt-10 text-zinc-400 leading-relaxed">
+              <p>Na sala de aula, em projetos ou em conteúdo, conecto fundamentos de marketing e comunicação às transformações provocadas por dados, automação e inteligência artificial.</p>
+              <p>O foco não é correr atrás de cada nova ferramenta. É compreender comportamento, contexto, estratégia e os impactos reais de cada escolha.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATUAÇÃO -->
+    <section id="atuacao" class="py-24 sm:py-32 bg-white/[.025] border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-12">
+          <div>
+            <p class="text-sm font-semibold text-lime mb-3">02 / ATUAÇÃO</p>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold tracking-tight">Onde as ideias viram trabalho.</h2>
+          </div>
+          <p class="text-zinc-500 max-w-md">Experiência aplicada a negócios, educação e comunicação digital.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <article class="card rounded-3xl border border-white/10 bg-ink/60 p-7 hover:border-lime/40">
+            <i data-lucide="brain-circuit" class="w-7 h-7 text-lime mb-12"></i>
+            <h3 class="font-display text-2xl font-semibold">IA & Estratégia</h3>
+            <p class="mt-3 text-zinc-400 leading-relaxed">Uso crítico e aplicado de IA generativa, automação e dados para comunicação, produtividade e tomada de decisão.</p>
+          </article>
+
+          <article class="card rounded-3xl border border-white/10 bg-ink/60 p-7 hover:border-electric/50">
+            <i data-lucide="megaphone" class="w-7 h-7 text-electric mb-12"></i>
+            <h3 class="font-display text-2xl font-semibold">Marketing Digital</h3>
+            <p class="mt-3 text-zinc-400 leading-relaxed">Estratégia de presença digital, conteúdo, mídia, SEO, SEM e construção de posicionamento para marcas e projetos.</p>
+          </article>
+
+          <article class="card rounded-3xl border border-white/10 bg-ink/60 p-7 hover:border-white/30">
+            <i data-lucide="graduation-cap" class="w-7 h-7 text-zinc-200 mb-12"></i>
+            <h3 class="font-display text-2xl font-semibold">Educação</h3>
+            <p class="mt-3 text-zinc-400 leading-relaxed">Ensino superior, formação profissional, palestras e desenvolvimento de experiências de aprendizagem conectadas ao mercado.</p>
+          </article>
+
+          <article class="card rounded-3xl border border-white/10 bg-ink/60 p-7 hover:border-lime/40">
+            <i data-lucide="layout-template" class="w-7 h-7 text-lime mb-12"></i>
+            <h3 class="font-display text-2xl font-semibold">Design & UX</h3>
+            <p class="mt-3 text-zinc-400 leading-relaxed">Projetos digitais com atenção à arquitetura da informação, usabilidade, comunicação visual e experiência do usuário.</p>
+          </article>
+
+          <article class="card rounded-3xl border border-white/10 bg-ink/60 p-7 hover:border-electric/50">
+            <i data-lucide="folder-kanban" class="w-7 h-7 text-electric mb-12"></i>
+            <h3 class="font-display text-2xl font-semibold">Projetos</h3>
+            <p class="mt-3 text-zinc-400 leading-relaxed">Planejamento, organização e condução de iniciativas digitais, educacionais e de comunicação do conceito à entrega.</p>
+          </article>
+
+          <article class="card rounded-3xl border border-white/10 bg-ink/60 p-7 hover:border-white/30">
+            <i data-lucide="messages-square" class="w-7 h-7 text-zinc-200 mb-12"></i>
+            <h3 class="font-display text-2xl font-semibold">Conteúdo & Palestras</h3>
+            <p class="mt-3 text-zinc-400 leading-relaxed">Conteúdo sobre marketing, comportamento, tecnologia e IA para transformar temas complexos em conversas úteis.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO -->
+    <section id="conteudo" class="py-24 sm:py-32">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="grid lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-4">
+            <p class="text-sm font-semibold text-lime mb-3">03 / CONTEÚDO</p>
+            <h2 class="font-display text-4xl sm:text-5xl font-bold tracking-tight">O que tenho colocado em discussão.</h2>
+            <p class="mt-5 text-zinc-500 leading-relaxed">Alguns temas recentes publicados e explorados nas minhas redes.</p>
+          </div>
+
+          <div class="lg:col-span-8 divide-y divide-white/10 border-t border-white/10">
+            <a href="https://linkedin.com/in/josetelmo" target="_blank" rel="noopener noreferrer" class="group py-7 flex gap-5 items-start justify-between">
+              <div>
+                <span class="text-xs text-zinc-600">ARTIGO · IA & CRIATIVIDADE</span>
+                <h3 class="mt-2 font-display text-2xl sm:text-3xl text-zinc-200 group-hover:text-lime transition">De Criador a “Validador de Robô”: é esse o seu futuro?</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-lime shrink-0 transition"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/josetelmo" target="_blank" rel="noopener noreferrer" class="group py-7 flex gap-5 items-start justify-between">
+              <div>
+                <span class="text-xs text-zinc-600">ARTIGO · IA & NEGÓCIOS</span>
+                <h3 class="mt-2 font-display text-2xl sm:text-3xl text-zinc-200 group-hover:text-lime transition">Como aplicar estratégias de IA dos líderes da indústria na sua PME</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-lime shrink-0 transition"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/josetelmo" target="_blank" rel="noopener noreferrer" class="group py-7 flex gap-5 items-start justify-between">
+              <div>
+                <span class="text-xs text-zinc-600">ARTIGO · COMPORTAMENTO & FUTURO</span>
+                <h3 class="mt-2 font-display text-2xl sm:text-3xl text-zinc-200 group-hover:text-lime transition">Há 55 anos Toffler já sabia o que você está sentindo agora</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-lime shrink-0 transition"></i>
+            </a>
+
+            <a href="https://www.instagram.com/josetelmo" target="_blank" rel="noopener noreferrer" class="group py-7 flex gap-5 items-start justify-between">
+              <div>
+                <span class="text-xs text-zinc-600">REFLEXÃO · APRENDIZAGEM</span>
+                <h3 class="mt-2 font-display text-2xl sm:text-3xl text-zinc-200 group-hover:text-lime transition">Aprender, revisar e construir repertório antes do próximo passo</h3>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-lime shrink-0 transition"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REDES -->
+    <section class="py-24 sm:py-32 border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <p class="text-sm font-semibold text-lime mb-3">04 / CONECTE-SE</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold tracking-tight max-w-3xl">Três canais, conversas diferentes.</h2>
+
+        <div class="grid md:grid-cols-3 gap-4 mt-12">
+          <a href="https://linkedin.com/in/josetelmo" target="_blank" rel="noopener noreferrer" class="card group rounded-3xl border border-white/10 p-7 min-h-64 flex flex-col justify-between hover:bg-[#0a66c2] hover:border-transparent">
+            <div class="flex items-center justify-between">
+              <i data-lucide="linkedin" class="w-7 h-7"></i>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold">LinkedIn</h3>
+              <p class="mt-2 text-zinc-500 group-hover:text-white/80 transition">Artigos, reflexões, mercado, educação e inteligência artificial.</p>
+              <span class="inline-block mt-5 text-sm text-zinc-400 group-hover:text-white">/in/josetelmo</span>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/josetelmo" target="_blank" rel="noopener noreferrer" class="card group rounded-3xl border border-white/10 p-7 min-h-64 flex flex-col justify-between hover:bg-fuchsia-600 hover:border-transparent">
+            <div class="flex items-center justify-between">
+              <i data-lucide="instagram" class="w-7 h-7"></i>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold">Instagram</h3>
+              <p class="mt-2 text-zinc-500 group-hover:text-white/80 transition">Bastidores, referências, ideias rápidas e recortes do cotidiano profissional.</p>
+              <span class="inline-block mt-5 text-sm text-zinc-400 group-hover:text-white">@josetelmo</span>
+            </div>
+          </a>
+
+          <a href="https://youtube.com/josetelmo" target="_blank" rel="noopener noreferrer" class="card group rounded-3xl border border-white/10 p-7 min-h-64 flex flex-col justify-between hover:bg-red-600 hover:border-transparent">
+            <div class="flex items-center justify-between">
+              <i data-lucide="youtube" class="w-7 h-7"></i>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl font-semibold">YouTube</h3>
+              <p class="mt-2 text-zinc-500 group-hover:text-white/80 transition">Vídeos para aprofundar temas, aulas, análises e conteúdos de tecnologia e marketing.</p>
+              <span class="inline-block mt-5 text-sm text-zinc-400 group-hover:text-white">/josetelmo</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contato" class="py-24 sm:py-36">
+      <div class="max-w-7xl mx-auto px-5 sm:px-8">
+        <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[.045] p-8 sm:p-14 lg:p-20">
+          <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-lime/10 blur-3xl"></div>
+          <div class="relative max-w-4xl">
+            <p class="text-sm font-semibold text-lime mb-5">VAMOS CONVERSAR</p>
+            <h2 class="font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.02] tracking-[-0.04em] font-bold">
+              Tem uma ideia, projeto, aula ou desafio para tirar do papel?
+            </h2>
+            <p class="mt-6 text-lg text-zinc-400 max-w-2xl">A melhor porta de entrada é o LinkedIn. Me envie uma mensagem e conte o contexto.</p>
+            <a href="https://linkedin.com/in/josetelmo" target="_blank" rel="noopener noreferrer" class="mt-9 inline-flex items-center gap-2 rounded-full bg-white text-black px-6 py-3.5 font-semibold hover:bg-lime transition">
+              Falar comigo no LinkedIn <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 py-8">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-zinc-600">
+      <p>© <span id="year"></span> José Telmo. Todos os direitos reservados.</p>
+      <div class="flex items-center gap-5">
+        <a href="https://linkedin.com/in/josetelmo" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">LinkedIn</a>
+        <a href="https://instagram.com/josetelmo" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram</a>
+        <a href="https://youtube.com/josetelmo" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
