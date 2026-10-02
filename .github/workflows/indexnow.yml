@@ -21,25 +21,79 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Notify IndexNow about updated public URLs
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build IndexNow payload from sitemap
         env:
           INDEXNOW_KEY: 87f8d6844004b20d3f7a24b0a5d42622
-          SITE_URL: https://josetelmo.github.io/preview/
+          SITE_HOST: josetelmo.github.io
           KEY_LOCATION: https://josetelmo.github.io/preview/87f8d6844004b20d3f7a24b0a5d42622.txt
         run: |
           set -euo pipefail
 
-          echo "Submitting ${SITE_URL} to IndexNow"
+          python - <<'PY'
+          import json
+          import os
+          import xml.etree.ElementTree as ET
+          from urllib.parse import urlparse
+
+          sitemap = "sitemap.xml"
+          namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+          root = ET.parse(sitemap).getroot()
+          urls = []
+
+          for loc in root.findall(".//sm:loc", namespace):
+              if not loc.text:
+                  continue
+
+              url = loc.text.strip()
+              parsed = urlparse(url)
+
+              if parsed.scheme not in {"http", "https"}:
+                  raise SystemExit(f"URL inválida no sitemap: {url}")
+
+              if parsed.hostname != os.environ["SITE_HOST"]:
+                  raise SystemExit(f"Host inesperado no sitemap: {url}")
+
+              urls.append(url)
+
+          urls = list(dict.fromkeys(urls))
+
+          if not urls:
+              raise SystemExit("Nenhuma URL encontrada no sitemap.xml")
+
+          if len(urls) > 10000:
+              raise SystemExit("O IndexNow aceita no máximo 10.000 URLs por envio.")
+
+          payload = {
+              "host": os.environ["SITE_HOST"],
+              "key": os.environ["INDEXNOW_KEY"],
+              "keyLocation": os.environ["KEY_LOCATION"],
+              "urlList": urls,
+          }
+
+          with open("/tmp/indexnow-payload.json", "w", encoding="utf-8") as fp:
+              json.dump(payload, fp, ensure_ascii=False)
+
+          print(f"{len(urls)} URL(s) preparada(s) para envio ao IndexNow:")
+          for url in urls:
+              print(f" - {url}")
+          PY
+
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          set -euo pipefail
 
           response_code=$(curl \
             --silent \
             --show-error \
             --output /tmp/indexnow-response.txt \
             --write-out "%{http_code}" \
-            --get "https://api.indexnow.org/indexnow" \
-            --data-urlencode "url=${SITE_URL}" \
-            --data-urlencode "key=${INDEXNOW_KEY}" \
-            --data-urlencode "keyLocation=${KEY_LOCATION}")
+            --request POST "https://api.indexnow.org/indexnow" \
+            --header "Content-Type: application/json; charset=utf-8" \
+            --data-binary @/tmp/indexnow-payload.json)
 
           cat /tmp/indexnow-response.txt || true
           echo
@@ -47,10 +101,10 @@ jobs:
 
           case "${response_code}" in
             200|202)
-              echo "IndexNow submission accepted."
+              echo "IndexNow batch submission accepted."
               ;;
             *)
-              echo "IndexNow submission failed."
+              echo "IndexNow batch submission failed."
               exit 1
               ;;
           esac
